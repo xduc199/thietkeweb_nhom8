@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* --- CONTACT PAGE STYLES --- */
 :root {
     --primary-red: #cc0000;
@@ -70,3 +71,72 @@
     font-weight: bold; /* Làm đậm chữ để nổi bật hơn */
     text-shadow: 0 0 8px rgba(255, 0, 0, 0.3); /* Thêm chút hiệu ứng phát sáng cho "sinh động" */
 }
+=======
+/* --- CONTACT PAGE STYLES --- */
+:root {
+    --primary-red: #cc0000;
+}
+
+.Oswald-font { font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
+
+/* Icon Boxes */
+.icon-box {
+    width: 45px;
+    height: 45px;
+    background: rgba(204, 0, 0, 0.1);
+    color: var(--primary-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.contact-info-item:hover .icon-box {
+    background: var(--primary-red);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Form Controls Custom */
+.form-control, .form-select {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 12px 15px;
+    transition: 0.3s;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-red);
+    box-shadow: none;
+    color: white;
+}
+
+.form-control::placeholder {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Animation */
+.ani-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.smooth-click:active {
+    transform: scale(0.98);
+}
+
+.hover-red:hover {
+    color: var(--primary-red) !important;
+    cursor: pointer;
+}
+>>>>>>> 7c0a17d9290a9c616fcd17a738e06e326e55c725

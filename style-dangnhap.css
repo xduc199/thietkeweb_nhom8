@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* --- LOGIN STYLES --- */
 :root {
     --primary-red: #cc0000;
@@ -93,4 +94,101 @@
 /* Hiệu ứng lún nút khi nhấn */
 .smooth-click:active {
     transform: scale(0.96);
+=======
+/* --- LOGIN STYLES --- */
+:root {
+    --primary-red: #cc0000;
+}
+
+.Oswald-font { font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
+
+/* Căn giữa Form theo chiều dọc */
+.login-section {
+    min-height: 80vh;
+}
+
+/* Custom Input */
+.form-control {
+    padding: 12px;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-red) !important;
+    box-shadow: none !important;
+}
+
+.input-group-text {
+    border-right: none;
+}
+
+/* Checkbox đỏ */
+.form-check-input:checked {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+/* Hiệu ứng mượt */
+.login-box {
+    transition: 0.4s;
+}
+
+.login-box:hover {
+    border-color: rgba(204, 0, 0, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ani-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hover-white:hover {
+    color: white !important;
+    transition: 0.3s;
+}
+
+.smooth-click:active {
+    transform: scale(0.97);
+}
+
+/* Header Button */
+.btn-reg-top {
+    border: 1px solid #444;
+    padding: 8px 20px;
+    font-size: 11px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-reg-top:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+/* --- BỔ SUNG CHO TRANG QUÊN MẬT KHẨU --- */
+.icon-forgot {
+    width: 80px;
+    height: 80px;
+    background: rgba(204, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.hover-white:hover {
+    color: white !important;
+    transition: 0.3s;
+}
+
+/* Hiệu ứng lún nút khi nhấn */
+.smooth-click:active {
+    transform: scale(0.96);
+>>>>>>> 7c0a17d9290a9c616fcd17a738e06e326e55c725
 }
