@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác Thực Bảo Mật | Garage Auto - Lê Xuân Đức</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styledangnhap.css">
+    
+    <style>
+        /* CSS riêng biệt để làm OTP giống thực tế nhất */
+        .otp-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .otp-input-real {
+            width: 50px;
+            height: 65px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 2px solid rgba(255, 255, 255, 0.1) !important;
+            color: #ff0000 !important;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .otp-input-real:focus {
+            border-color: #ff0000 !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+            outline: none;
+            transform: scale(1.05);
+        }
+
+        .countdown-text {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .resend-link.disabled {
+            pointer-events: none;
+            color: #555 !important;
+        }
+    </style>
+</head>
+<body class="bg-black text-white d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top py-3 border-bottom border-secondary border-opacity-10">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 Oswald-font" href="index.html">GARAGE<span class="text-danger">AUTO</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto text-uppercase fw-semibold small">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="dich-vu.html">Dịch vụ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="tin-tuc.html">Tin tức</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-auto">
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+                <div class="login-box p-5 rounded-4 bg-dark bg-opacity-50 border border-secondary border-opacity-10 shadow-lg text-center ani-fade-up">
+                    
+                    <div class="mb-4">
+                        <div class="icon-circle bg-danger bg-opacity-10 d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-shield-halved text-danger fs-1"></i>
+                        </div>
+                        <h2 class="Oswald-font text-uppercase mb-2">NHẬP MÃ <span class="text-danger">XÁC THỰC</span></h2>
+                        <p class="small text-secondary px-3">Mã OTP gồm 6 chữ số đã được gửi đến email của bạn.</p>
+                    </div>
+
+                    <form id="otpForm">
+                        <div class="otp-container">
+                            <input type="text" class="otp-input-real" maxlength="1" pattern="\d*">
+                            <input type="text" class="otp-input-real" maxlength="1" pattern="\d*">
+                            <input type="text" class="otp-input-real" maxlength="1" pattern="\d*">
+                            <input type="text" class="otp-input-real" maxlength="1" pattern="\d*">
+                            <input type="text" class="otp-input-real" maxlength="1" pattern="\d*">
+                            <input type="text" class="otp-input-real" maxlength="1" pattern="\d*">
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100 py-3 Oswald-font text-uppercase fw-bold mb-4">
+                            XÁC NHẬN MÃ
+                        </button>
+                        
+                        <div class="countdown-text">
+                            Không nhận được mã? <br>
+                            <span id="timer-box">Gửi lại mã sau <b class="text-white" id="timer">60</b> giây</span>
+                            <a href="#" id="resendBtn" class="text-danger fw-bold text-decoration-none d-none">GỬI LẠI NGAY</a>
+                        </div>
+                    </form>
+
+                    <a href="quen-mat-khau.html" class="mt-4 d-block text-secondary small text-decoration-none hover-white">
+                        <i class="fas fa-arrow-left me-1"></i> Quay lại bước trước
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll('.otp-input-real');
+        const timerDisplay = document.getElementById('timer');
+        const resendBtn = document.getElementById('resendBtn');
+        const timerBox = document.getElementById('timer-box');
+
+        // 1. Xử lý tự động chuyển ô (Auto-focus)
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length > 1) {
+                    e.target.value = e.target.value.slice(0, 1);
+                }
+                if (e.target.value && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        // 2. Bộ đếm ngược 60 giây
+        let timeLeft = 60;
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerDisplay.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerBox.classList.add('d-none');
+                resendBtn.classList.remove('d-none');
+            }
+        }, 1000);
+
+        // 3. Xử lý khi nhấn xác nhận
+        document.getElementById('otpForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Đang xác thực mã OTP của Đức...');
+            // Chỗ này Đức có thể chuyển hướng sang trang đổi mật khẩu mới
+            // window.location.href = "dat-lai-mat-khau.html";
+        });
+    </script>
+</body>
+</html>
