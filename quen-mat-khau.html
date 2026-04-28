@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khôi Phục Mật Khẩu | Garage Auto - Lê Xuân Đức</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body class="bg-black text-white">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top py-3 border-bottom border-secondary border-opacity-10">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 Oswald-font" href="index.html">GARAGE<span class="text-danger">AUTO</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto text-uppercase fw-semibold small">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="dich-vu.html">Dịch vụ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="tin-tuc.html">Tin tức</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="login-section d-flex align-items-center py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="login-box p-5 rounded-4 bg-dark bg-opacity-50 border border-secondary border-opacity-10 shadow-lg ani-fade-up">
+                        <div class="text-center mb-5">
+                            <div class="icon-forgot mb-3">
+                                <i class="fas fa-key text-danger fs-1"></i>
+                            </div>
+                            <h2 class="Oswald-font text-uppercase mb-2">QUÊN <span class="text-danger">MẬT KHẨU?</span></h2>
+                            <p class="small text-secondary">Nhập email của bạn để nhận mã khôi phục</p>
+                        </div>
+
+                        <form id="forgotForm">
+                            <div class="mb-4">
+                                <label class="small text-secondary mb-2 text-uppercase fw-bold">Email đăng ký</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-transparent border-secondary text-secondary border-end-0"><i class="fas fa-envelope"></i></span>
+                                    <input type="email" class="form-control bg-transparent border-secondary text-white border-start-0" placeholder="email" required>
+                                </div>
+                            </div>
+
+                            <a href="xac-nhan-otp.html" class="btn btn-danger w-100 py-3 Oswald-font text-uppercase fw-bold smooth-click mb-4">Gửi mã xác nhận</a>
+
+                            <div class="text-center">
+                                <a href="dangnhap.html" class="text-secondary text-decoration-none small hover-white">
+                                    <i class="fas fa-arrow-left me-1"></i> Quay lại Đăng nhập
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+/* ============================================================
+   1. BIẾN TOÀN CỤC & CẤU HÌNH CHUNG
+   Dùng để quản lý màu sắc và thông số đồng bộ trên toàn trang
+   ============================================================ */
+:root {
+    --primary-red: #ff0000;    /* Đỏ chủ đạo */
+    --dark-red: #800000;       /* Đỏ đậm */
+    --accent-yellow: #d4d400;  /* Vàng điểm nhấn */
+    --bg-black: #0d0d0d;       /* Màu nền đen xám */
+    --card-black: #1a1a1a;     /* Màu nền của các thẻ card */
+    --radius-large: 40px;      /* Độ bo góc lớn */
+    /* Hiệu ứng chuyển động mượt mà (Ease-out) */
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Hiệu ứng: Hiện dần và trượt từ dưới lên */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hiệu ứng: Hình ảnh trôi nổi lên xuống */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { scroll-behavior: smooth; } /* Cuộn trang mượt mà khi bấm link */
+
+body { 
+    background: #000; 
+    color: #fff; 
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.5; 
+    overflow-x: hidden; /* Tránh vỡ khung theo chiều ngang */
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+h1, h2, h3, h4, h5, h6 { 
+    font-family: 'Oswald', sans-serif; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+/* ============================================================
+   2. HEADER & THANH ĐIỀU HƯỚNG
+   Cố định ở trên cùng và có hiệu ứng mờ nền (Blur)
+   ============================================================ */
+header { 
+    border-bottom: 1px dashed #333; 
+    padding: 20px 0; 
+    position: sticky; /* Giữ menu khi cuộn chuột */
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px); /* Hiệu ứng kính mờ xịn xò */
+    z-index: 1000;
+}
+
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+
+.logo { 
+    font-size: 24px; 
+    font-weight: bold; 
+    border: 1px dashed #007bff; 
+    padding: 5px 10px; 
+    transition: var(--transition);
+}
+
+.logo span { color: var(--primary-red); }
+
+nav ul { display: flex; list-style: none; gap: 20dotpx; }
+
+nav a { 
+    text-decoration: none; 
+    color: #fff; 
+    font-size: 14px; 
+    text-transform: uppercase; 
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Đường gạch chân chạy ra khi di chuột vào Menu */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-red);
+    transition: var(--transition);
+}
+
+nav a:hover { color: var(--primary-red); }
+nav a:hover::after { width: 100%; }
+
+/* Nút Đăng ký với hình khối vát chéo (Clip-path) */
+.btn-reg { 
+    background: var(--dark-red); 
+    color: #fff; 
+    padding: 10px 25px; 
+    border: none; 
+    font-weight: bold; 
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); 
+    cursor: pointer; 
+    transition: var(--transition);
+}
+
+.btn-reg:hover { 
+    background: var(--primary-red); 
+    transform: scale(1.1); /* Phóng to nhẹ khi hover */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+/* ============================================================
+   3. HERO SECTION (Khu vực giới thiệu đầu trang)
+   ============================================================ */
+.hero { 
+    padding: 100px 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.hero-text h1 { 
+    font-size: 70px; 
+    line-height: 0.8; 
+    animation: fadeInUp 0.8s ease-out; /* Hiện dần khi load trang */
+}
+
+.hero-text h1 span { 
+    color: var(--primary-red); 
+    font-size: 100px; 
+    display: block; 
+}
+
+.btn-explore { 
+    background: transparent; 
+    border: 2px solid var(--accent-yellow); 
+    color: var(--accent-yellow); 
+    padding: 12px 35px; 
+    border-radius: 10px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: var(--transition);
+}
+
+.btn-explore:hover { 
+    background: var(--accent-yellow); 
+    color: #000; 
+}
+
+.hero-img img { 
+    width: 500px; 
+    animation: floating 4s ease-in-out infinite; /* Hình ảnh bay tự động */
+    filter: drop-shadow(0 10px 30px rgba(255, 0, 0, 0.15));
+}
+
+/* ============================================================
+   4. BANNER CARDS (Các thẻ hình ảnh quảng cáo)
+   ============================================================ */
+.banner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 80px; }
+
+.banner-item { 
+    position: relative; 
+    height: 300px; 
+    border-radius: var(--radius-large); 
+    overflow: hidden; 
+    display: flex; 
+    align-items: flex-end; 
+    padding: 30px; 
+}
+
+/* Hiệu ứng Zoom hình ảnh khi di chuột vào Banner */
+.banner-item img { 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    object-fit: cover; 
+    z-index: 1; 
+    filter: brightness(0.5); 
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.banner-item:hover img { 
+    transform: scale(1.15) rotate(1deg); 
+    filter: brightness(0.7);
+}
+
+.banner-item h3 { position: relative; z-index: 2; transition: var(--transition); }
+
+/* ============================================================
+   5. SECTION EXPERTISE (Thợ Giỏi / Chuyên môn)
+   ============================================================ */
+.expertise-container { 
+    display: flex; 
+    border-radius: var(--radius-large); 
+    overflow: hidden; 
+    background: #111; 
+    margin-bottom: 80px; 
+}
+
+.expertise-left { 
+    flex: 4; 
+    background: var(--dark-red); 
+    padding: 60px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.expertise-right { flex: 6; padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+
+.service-box { 
+    background: #1a1a1a; 
+    padding: 35px; 
+    border-radius: 25px; 
+    position: relative; 
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+/* Đổi màu viền và trượt lên khi di chuột vào ô dịch vụ */
+.service-box:hover {
+    background: #222;
+    border-color: var(--accent-yellow);
+    transform: translateY(-10px);
+}
+
+/* Số thứ tự mờ nằm ẩn phía sau */
+.service-box .num { 
+    position: absolute; 
+    top: 10px; right: 20px; 
+    font-size: 60px; 
+    font-weight: 900; 
+    color: rgba(255,255,255,0.03); 
+    font-family: 'Oswald'; 
+}
+
+/* ============================================================
+   6. WORK CARDS (Công việc chính)
+   ============================================================ */
+.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 80px; }
+
+.work-card { 
+    background: #111; 
+    padding: 45px 35px; 
+    border-left: 6px solid var(--primary-red); 
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Lớp màu đỏ mờ tràn từ trái sang phải khi hover */
+.work-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 100%;
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.1), transparent);
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.work-card:hover { border-left-width: 12px; }
+.work-card:hover::after { width: 100%; }
+
+/* ============================================================
+   7. NEWS SECTION (Tin tức)
+   ============================================================ */
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 80px; }
+
+.news-card { 
+    background: #111; 
+    border-radius: var(--radius-large); 
+    overflow: hidden; 
+    transition: var(--transition);
+    border: 1px solid #222;
+}
+
+.news-card:hover { 
+    transform: translateY(-15px); 
+    border-color: var(--primary-red);
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
+}
+
+/* ============================================================
+   8. FOOTER (Chân trang)
+   ============================================================ */
+footer { border-top: 1px solid #222; padding: 80px 0 30px; background: #050505; }
+
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; border-bottom: 1px solid #222; padding-bottom: 40px; }
+
+/* Icon mạng xã hội với hiệu ứng xoay nhẹ khi hover */
+.social-icons a { 
+    width: 45px; height: 45px; 
+    background: #1a1a1a; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 12px; 
+    transition: var(--transition);
+}
+
+.social-icons a:hover { 
+    background: var(--primary-red); 
+    transform: translateY(-5px) rotate(10deg); 
+}
+
+/* ============================================================
+   9. RESPONSIVE (Tương thích thiết bị di động)
+   ============================================================ */
+@media (max-width: 992px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-img img { width: 80%; margin-top: 40px; }
+    .banner-grid, .work-grid, .news-grid, .footer-grid { grid-template-columns: 1fr; }
+    .expertise-container { flex-direction: column; }
+    .expertise-right { grid-template-columns: 1fr; }
+}
+    .navbar-nav .nav-link.active {
+        color: var(--primary-red) !important; /* !important để ép trình duyệt dùng màu này */
+         font-weight: bold; /* Làm đậm chữ để nổi bật hơn */
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.3); /* Thêm chút hiệu ứng phát sáng cho "sinh động" */
+        } 
