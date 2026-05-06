@@ -1,263 +1,131 @@
-<<<<<<< HEAD
-/* --- BIẾN CHỦ ĐẠO & FONT --- */
+/* ============================================================
+   1. BIẾN TOÀN CỤC & CẤU HÌNH CHUNG
+   ============================================================ */
 :root {
-    --primary-red: #cc0000;
-    --dark-surface: #0a0a0a;
+    --primary-red: #ff0000;      /* Đỏ chủ đạo */
+    --dark-red: #800000;         /* Đỏ đậm cho nút */
+    --accent-yellow: #FFC107;    /* Vàng điểm nhấn */
+    --bg-black: #0d0d0d;         /* Màu nền đen xám */
+    --card-bg: #1a1a1a;          /* Màu nền của các thẻ card */
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --glass-border: rgba(255, 255, 255, 0.08);
 }
 
-.Oswald-font { 
-    font-family: 'Oswald', sans-serif; 
-    letter-spacing: 1px; 
+body { 
+    background: #000; 
+    color: #fff; 
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.6; 
+    overflow-x: hidden;
 }
 
-/* --- HIỆU ỨNG CHO DANH SÁCH TIN (GRID) --- */
+h1, h2, h3, h4, h5, .navbar-brand { 
+    font-family: 'Oswald', sans-serif; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+/* ============================================================
+   2. THANH ĐIỀU HƯỚNG (NAVBAR) & NÚT ĐĂNG KÝ
+   ============================================================ */
+.navbar {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px dashed #333;
+}
+
+.nav-link {
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Hiệu ứng gạch chân khi hover menu */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--primary-red);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link:hover, .nav-link.active { color: var(--primary-red) !important; }
+
+/* NÚT ĐĂNG KÝ VÁT CHÉO - CHUẨN FORM ẢNH */
+.btn-reg { 
+    background: var(--dark-red) !important; 
+    color: #fff !important; 
+    padding: 10px 30px !important; 
+    border: none !important; 
+    font-weight: bold; 
+    font-family: 'Oswald', sans-serif;
+    /* Góc vát chuẩn */
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%); 
+    cursor: pointer; 
+    transition: var(--transition);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-reg:hover { 
+    background: var(--primary-red) !important; 
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+/* ============================================================
+   3. STYLE CHO TIN TỨC & BÀI VIẾT (Tối ưu từ file News)
+   ============================================================ */
 .news-item {
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    border-radius: 12px;
-    padding: 15px;
+    transition: var(--transition);
+    border-radius: 15px;
+    background: var(--card-bg);
+    overflow: hidden;
 }
 
 .news-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-    transform: translateX(10px); /* Hiệu ứng đẩy sang phải nhẹ khi hover */
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
 }
 
 .news-zoom {
     transition: transform 0.8s ease;
-    width: 100%;
-    height: 250px;
     object-fit: cover;
 }
 
-.news-item:hover .news-zoom {
-    transform: scale(1.1) rotate(1deg); /* Phóng to và xoay nhẹ */
-}
+.news-item:hover .news-zoom { transform: scale(1.1) rotate(1deg); }
 
-/* --- CHI TIẾT NỘI DUNG BÀI VIẾT --- */
-.news-content {
-    font-size: 1.1rem;
-    color: #b0b0b0;
-    line-height: 1.8;
-}
-
-.news-content h3 {
-    color: #ffffff;
-    border-left: 4px solid var(--primary-red);
-    padding-left: 15px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.news-content p {
-    margin-bottom: 1.5rem;
-    text-align: justify; /* Căn đều hai bên cho chuyên nghiệp */
-}
-
-/* --- KHỐI NHẤN MẠNH (HIGHLIGHT BOX) --- */
-.highlight-box {
-    background: linear-gradient(90deg, #1a1a1a 0%, #000 100%);
-    border-left: 4px solid var(--primary-red);
-    padding: 25px;
-    border-radius: 0 12px 12px 0;
-    margin: 30px 0;
-}
-
-/* --- SIDEBAR WIDGETS --- */
+/* Sidebar cho trang tin tức */
 .sidebar-box {
-    background: var(--dark-surface);
+    background: var(--bg-black);
     border: 1px solid var(--glass-border);
     padding: 25px;
     border-radius: 15px;
-    transition: 0.3s;
+    margin-bottom: 25px;
 }
 
-.sidebar-box:hover {
-    border-color: rgba(204, 0, 0, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.popular-item {
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
-
-.popular-item:last-child { border: none; }
-
-.popular-item:hover {
-    transform: scale(1.02);
-}
-
-/* --- NÚT ĐẶT LỊCH TRONG BÀI VIẾT --- */
-.btn-cta {
-    background: var(--primary-red);
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0 10px 20px rgba(204, 0, 0, 0.3);
-    transition: 0.4s;
-    border: none;
-}
-
-.btn-cta:hover {
-    background: #ff0000;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(204, 0, 0, 0.5);
-    color: white;
-}
-
-/* --- ANIMATION KHI LOAD TRANG --- */
+/* ============================================================
+   4. HIỆU ỨNG ĐỘNG (ANIMATIONS)
+   ============================================================ */
 .ani-fade-up {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeUp 0.8s forwards;
+    animation: fadeInUp 0.8s forwards;
 }
 
-@keyframes fadeUp {
+@keyframes fadeInUp {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive cho mobile */
-@media (max-width: 768px) {
-    .news-zoom { height: 200px; }
-    .display-4 { font-size: 2.5rem; }
-}
-.navbar-nav .nav-link.active {
-    color: var(--primary-red) !important; /* !important để ép trình duyệt dùng màu này */
-    font-weight: bold; /* Làm đậm chữ để nổi bật hơn */
-    text-shadow: 0 0 8px rgba(255, 0, 0, 0.3); /* Thêm chút hiệu ứng phát sáng cho "sinh động" */
-=======
-/* --- BIẾN CHỦ ĐẠO & FONT --- */
-:root {
-    --primary-red: #cc0000;
-    --dark-surface: #0a0a0a;
-    --glass-border: rgba(255, 255, 255, 0.08);
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
-.Oswald-font { 
-    font-family: 'Oswald', sans-serif; 
-    letter-spacing: 1px; 
-}
-
-/* --- HIỆU ỨNG CHO DANH SÁCH TIN (GRID) --- */
-.news-item {
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    border-radius: 12px;
-    padding: 15px;
-}
-
-.news-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-    transform: translateX(10px); /* Hiệu ứng đẩy sang phải nhẹ khi hover */
-}
-
-.news-zoom {
-    transition: transform 0.8s ease;
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.news-item:hover .news-zoom {
-    transform: scale(1.1) rotate(1deg); /* Phóng to và xoay nhẹ */
-}
-
-/* --- CHI TIẾT NỘI DUNG BÀI VIẾT --- */
-.news-content {
-    font-size: 1.1rem;
-    color: #b0b0b0;
-    line-height: 1.8;
-}
-
-.news-content h3 {
-    color: #ffffff;
-    border-left: 4px solid var(--primary-red);
-    padding-left: 15px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.news-content p {
-    margin-bottom: 1.5rem;
-    text-align: justify; /* Căn đều hai bên cho chuyên nghiệp */
-}
-
-/* --- KHỐI NHẤN MẠNH (HIGHLIGHT BOX) --- */
-.highlight-box {
-    background: linear-gradient(90deg, #1a1a1a 0%, #000 100%);
-    border-left: 4px solid var(--primary-red);
-    padding: 25px;
-    border-radius: 0 12px 12px 0;
-    margin: 30px 0;
-}
-
-/* --- SIDEBAR WIDGETS --- */
-.sidebar-box {
-    background: var(--dark-surface);
-    border: 1px solid var(--glass-border);
-    padding: 25px;
-    border-radius: 15px;
-    transition: 0.3s;
-}
-
-.sidebar-box:hover {
-    border-color: rgba(204, 0, 0, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.popular-item {
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
-
-.popular-item:last-child { border: none; }
-
-.popular-item:hover {
-    transform: scale(1.02);
-}
-
-/* --- NÚT ĐẶT LỊCH TRONG BÀI VIẾT --- */
-.btn-cta {
-    background: var(--primary-red);
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0 10px 20px rgba(204, 0, 0, 0.3);
-    transition: 0.4s;
-    border: none;
-}
-
-.btn-cta:hover {
-    background: #ff0000;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(204, 0, 0, 0.5);
-    color: white;
-}
-
-/* --- ANIMATION KHI LOAD TRANG --- */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s forwards;
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive cho mobile */
-@media (max-width: 768px) {
-    .news-zoom { height: 200px; }
-    .display-4 { font-size: 2.5rem; }
->>>>>>> 7c0a17d9290a9c616fcd17a738e06e326e55c725
+/* Responsive */
+@media (max-width: 991px) {
+    .btn-reg { clip-path: none; border-radius: 5px; width: 100%; text-align: center; }
 }

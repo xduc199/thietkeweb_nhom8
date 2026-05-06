@@ -1,494 +1,335 @@
-<<<<<<< HEAD
-/* --- BIẾN TOÀN CỤC (CSS VARIABLES) --- */
+/* ============================================================
+   1. BIẾN TOÀN CỤC & CẤU HÌNH CHUNG
+   ============================================================ */
 :root {
-    --primary-red: #C80000; /* Màu đỏ chủ đạo */
-    --bg-dark: #111111;    /* Màu nền đen chính */
-    --card-bg: #1A1A1A;    /* Màu nền của các thẻ card */
+    --primary-red: #ff0000;      /* Đỏ chủ đạo */
+    --dark-red: #800000;         /* Đỏ đậm cho nút */
+    --accent-yellow: #FFC107;    /* Vàng điểm nhấn */
+    --bg-black: #0d0d0d;         /* Màu nền đen xám */
+    --card-bg: #1a1a1a;          /* Màu nền của các thẻ card */
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --glass-border: rgba(255, 255, 255, 0.08);
 }
 
-/* --- CẤU HÌNH CHUNG --- */
-body {
-    background-color: var(--bg-dark);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
+body { 
+    background: #000; 
+    color: #fff; 
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.6; 
+    overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, .navbar-brand {
-    font-family: 'Oswald', sans-serif; /* Font mạnh mẽ cho tiêu đề */
-    text-transform: uppercase;
+h1, h2, h3, h4, h5, .navbar-brand { 
+    font-family: 'Oswald', sans-serif; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
 }
 
-/* --- THANH MENU (NAVBAR) --- */
-.nav-link { font-size: 13px; letter-spacing: 0.5px; transition: 0.3s; }
-.nav-link:hover, .nav-link.active { color: var(--primary-red) !important; }
-.btn-reg { 
-    background: #222; border: 1px solid #444; color: #fff; 
-    padding: 8px 20px; font-size: 12px; font-weight: bold;
-    cursor: pointer;
+/* ============================================================
+   2. THANH ĐIỀU HƯỚNG (NAVBAR) & NÚT ĐĂNG KÝ
+   ============================================================ */
+.navbar {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px dashed #333;
 }
 
-/* --- PHẦN HERO (ĐẦU TRANG) --- */
-.hero { min-height: 85vh; overflow: hidden; padding: 60px 0; }
-.watermark {
-    position: absolute; top: 50%; left: 5%; transform: translateY(-50%);
-    font-size: 16rem; font-weight: 700; color: rgba(255, 255, 255, 0.02); z-index: 1;
-    pointer-events: none;
-}
-.hero-img-box { filter: drop-shadow(0 0 50px rgba(0, 150, 255, 0.3)); }
-.btn-discover {
-    background: transparent; border: 2px solid #FFC107; color: #FFC107;
-    padding: 15px 40px; font-weight: bold; transition: 0.3s;
-}
-.btn-discover:hover { background: #FFC107; color: #000; }
-
-/* --- CÁC THẺ BANNER (DÙNG THẺ IMG) --- */
-.banner-card {
-    position: relative; border-radius: 12px; overflow: hidden;
-    aspect-ratio: 16 / 7; display: flex; align-items: flex-end;
-}
-.banner-img {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover; z-index: 1;
-}
-.banner-card::after {
-    /* Lớp phủ đen mờ phía dưới để nổi bật chữ */
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-    z-index: 2;
-}
-.banner-card span {
-    position: relative; z-index: 3; padding: 20px; font-weight: bold; font-size: 14px;
-}
-
-/* --- PHẦN KINH NGHIỆM --- */
-.expertise-red { 
-    background-color: var(--primary-red); 
-}
-
-.expertise-black { 
-    background-color: #232323; 
-}
-
-/* Container chính dùng Flex */
-.num-item-flex {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Khoảng cách cứng giữa số và chữ */
-}
-
-/* Phần chứa con số */
-.num-side {
-    font-family: 'Oswald', sans-serif;
-    font-size: 45px; /* Giảm size xuống một chút cho thanh thoát */
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.1); /* Độ mờ vừa phải để vẫn nhìn thấy số */
-    line-height: 1;
-    min-width: 55px; /* Cố định độ rộng để các hàng thẳng cột với nhau */
-}
-
-/* Phần chứa nội dung chữ */
-.content-side {
-    border-left: 1px solid rgba(255, 255, 255, 0.1); /* Vạch ngăn mờ giữa số và chữ */
-    padding-left: 15px;
-}
-
-.content-side h6 {
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.content-side p {
-    font-size: 12px;
-    opacity: 0.7;
-}
-
-/* --- CÁC CÔNG VIỆC CHÍNH --- */
-.section-title { border-left: 5px solid var(--primary-red); padding-left: 15px; font-weight: bold; font-size: 24px; }
-.work-card { background: var(--card-bg); transition: 0.3s; }
-.work-card:hover { background: #2A2A2A; }
-
-/* --- THẺ TIN TỨC --- */
-.news-card { border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
-.news-img-wrap img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-
-/* --- CHÂN TRANG (FOOTER) --- */
-.social-icon {
-    width: 35px; height: 35px; border-radius: 50%; display: flex;
-    align-items: center; justify-content: center; color: #fff;
-}
-.fb { background: #1877F2; } .yt { background: #FF0000; } .ig { background: #E4405F; }
-.x-small { font-size: 11px; letter-spacing: 0.5px; opacity: 0.6; }
-/* =============================================
-   HIỆU ỨNG ĐỘNG SIÊU MƯỢT (ULTRA SMOOTH)
-   ============================================= */
-
-/* 1. Thiết lập chung cho các thẻ link chứa ảnh */
-.card-ani-link, .news-ani-link, .img-ani-link {
-    display: block;
-    text-decoration: none;
-    outline: none;
-    /* Sử dụng cubic-bezier để chuyển động có gia tốc mượt mà */
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* 2. Hiệu ứng Hover cho Banner & News Card */
-.card-ani-link:hover, .news-ani-link:hover {
-    transform: translateY(-12px); /* Nhấc nhẹ card lên */
-}
-
-.card-ani-link:hover .banner-card, 
-.news-ani-link:hover .news-card {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(200, 0, 0, 0.2);
-    border-color: var(--primary-red);
-}
-
-/* Phóng to ảnh bên trong mượt mà */
-.banner-img, .news-img-wrap img {
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
-}
-
-.card-ani-link:hover .banner-img, 
-.news-ani-link:hover .news-img-wrap img {
-    transform: scale(1.12); /* Phóng to nhẹ */
-    filter: brightness(1.1) contrast(1.05); /* Làm ảnh trong trẻo hơn */
-}
-
-/* 3. Hiệu ứng Click (Active) - Cực mượt */
-.card-ani-link:active, 
-.news-ani-link:active, 
-.img-ani-link:active {
-    transform: scale(0.94); /* Hiệu ứng lún xuống */
-    filter: brightness(0.8); /* Tối lại một chút khi nhấn */
-    transition: transform 0.15s ease-out; /* Phản hồi nhấn cực nhanh */
-}
-
-/* 4. Hiệu ứng riêng cho ảnh xe ở phần Hero */
-.img-ani-link .hero-img-box {
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Hiệu ứng hơi nảy (Back-out) */
-}
-
-.img-ani-link:hover .hero-img-box {
-    filter: drop-shadow(0 0 40px rgba(255, 0, 0, 0.4));
-    transform: scale(1.03) rotate(-1deg);
-}
-
-/* 5. Hiệu ứng đường kẻ dưới cho Menu (Nav-link) */
 .nav-link {
+    font-size: 14px;
+    text-transform: uppercase;
     position: relative;
+    transition: var(--transition);
 }
+
+/* Hiệu ứng gạch chân khi hover menu */
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
     background: var(--primary-red);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-.nav-link:hover::after {
-    width: 80%;
+    transition: var(--transition);
 }
 
-/* --- STYLE CHO 3 THẾ MẠNH --- */
-.feature-card {
-    background: rgba(255, 255, 255, 0.02);
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link:hover, .nav-link.active { color: var(--primary-red) !important; }
+
+/* NÚT ĐĂNG KÝ VÁT CHÉO - CHUẨN FORM ẢNH */
+.btn-reg { 
+    background: var(--dark-red) !important; 
+    color: #fff !important; 
+    padding: 10px 30px !important; 
+    border: none !important; 
+    font-weight: bold; 
+    font-family: 'Oswald', sans-serif;
+    /* Góc vát chuẩn */
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%); 
+    cursor: pointer; 
+    transition: var(--transition);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-reg:hover { 
+    background: var(--primary-red) !important; 
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+/* --- HERO SECTION --- */
+.hero {
     position: relative;
+    padding: 60px 0;
+    background: radial-gradient(circle at 10% 20%, rgba(217, 4, 41, 0.05) 0%, transparent 50%);
+}
+
+.watermark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 15vw;
+    font-family: 'Oswald';
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+}
+
+.text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--primary-red);
+}
+
+.btn-skew {
+    display: inline-block;
+    background: var(--primary-red);
+    color: #fff;
+    padding: 14px 35px;
+    text-decoration: none;
+    font-family: 'Oswald';
+    font-weight: bold;
+    transform: skew(-15deg);
+    transition: var(--transition);
+}
+
+.btn-skew span {
+    display: block;
+    transform: skew(15deg);
+}
+
+.btn-skew:hover {
+    background: #fff;
+    color: var(--primary-red);
+    transform: skew(-15deg) translateY(-3px);
+}
+
+.hero-img-frame {
+    transform: skew(-5deg);
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-img-frame img { transform: skew(5deg) scale(1.1); }
+
+/* --- STATS --- */
+.stats-box {
+    background: var(--dark-card);
+    padding: 40px 0;
+    border-top: 1px solid rgba(217, 4, 41, 0.1);
+    border-bottom: 1px solid rgba(217, 4, 41, 0.1);
+}
+
+/* --- SERVICES --- */
+.service-card {
+    background: var(--dark-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-red);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.service-img {
+    position: relative;
+    height: 180px;
     overflow: hidden;
 }
 
-/* Hiệu ứng khi di chuột vào */
-.feature-card:hover {
-    background: rgba(204, 0, 0, 0.05);
-    border-color: rgba(204, 0, 0, 0.4) !important;
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
 }
 
-/* Style cho Icon */
-.feature-icon-box {
-    width: 70px;
-    height: 70px;
-    background: rgba(204, 0, 0, 0.1);
-    color: #cc0000;
-    font-size: 2rem;
+.service-card:hover .service-img img {
+    transform: scale(1.1);
+}
+
+.service-icon-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    background: var(--primary-red);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
     border-radius: 50%;
-    transition: 0.5s;
-}
-
-.feature-card:hover .feature-icon-box {
-    background: #cc0000;
-    color: white;
-    transform: rotateY(180deg); /* Xoay icon 180 độ */
-}
-
-/* Thẻ ở giữa nổi bật hơn */
-.active-feature {
-    background: rgba(204, 0, 0, 0.03);
-    border-color: rgba(204, 0, 0, 0.2) !important;
-}
-
-/* Animation load trang */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s forwards;
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-=======
-/* --- BIẾN TOÀN CỤC (CSS VARIABLES) --- */
-:root {
-    --primary-red: #C80000; /* Màu đỏ chủ đạo */
-    --bg-dark: #111111;    /* Màu nền đen chính */
-    --card-bg: #1A1A1A;    /* Màu nền của các thẻ card */
-}
-
-/* --- CẤU HÌNH CHUNG --- */
-body {
-    background-color: var(--bg-dark);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-}
-
-h1, h2, h3, h4, h5, .navbar-brand {
-    font-family: 'Oswald', sans-serif; /* Font mạnh mẽ cho tiêu đề */
-    text-transform: uppercase;
-}
-
-/* --- THANH MENU (NAVBAR) --- */
-.nav-link { font-size: 13px; letter-spacing: 0.5px; transition: 0.3s; }
-.nav-link:hover, .nav-link.active { color: var(--primary-red) !important; }
-.btn-reg { 
-    background: #222; border: 1px solid #444; color: #fff; 
-    padding: 8px 20px; font-size: 12px; font-weight: bold;
-    cursor: pointer;
-}
-
-/* --- PHẦN HERO (ĐẦU TRANG) --- */
-.hero { min-height: 85vh; overflow: hidden; padding: 60px 0; }
-.watermark {
-    position: absolute; top: 50%; left: 5%; transform: translateY(-50%);
-    font-size: 16rem; font-weight: 700; color: rgba(255, 255, 255, 0.02); z-index: 1;
-    pointer-events: none;
-}
-.hero-img-box { filter: drop-shadow(0 0 50px rgba(0, 150, 255, 0.3)); }
-.btn-discover {
-    background: transparent; border: 2px solid #FFC107; color: #FFC107;
-    padding: 15px 40px; font-weight: bold; transition: 0.3s;
-}
-.btn-discover:hover { background: #FFC107; color: #000; }
-
-/* --- CÁC THẺ BANNER (DÙNG THẺ IMG) --- */
-.banner-card {
-    position: relative; border-radius: 12px; overflow: hidden;
-    aspect-ratio: 16 / 7; display: flex; align-items: flex-end;
-}
-.banner-img {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover; z-index: 1;
-}
-.banner-card::after {
-    /* Lớp phủ đen mờ phía dưới để nổi bật chữ */
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    font-size: 1.2rem;
     z-index: 2;
-}
-.banner-card span {
-    position: relative; z-index: 3; padding: 20px; font-weight: bold; font-size: 14px;
+    box-shadow: 0 5px 15px rgba(217, 4, 41, 0.4);
 }
 
-/* --- PHẦN KINH NGHIỆM --- */
-.expertise-red { 
-    background-color: var(--primary-red); 
+.service-card:hover .service-icon-overlay {
+    transform: rotateY(360deg);
+    transition: 0.6s ease;
 }
 
-.expertise-black { 
-    background-color: #232323; 
+.service-content {
+    padding: 25px;
 }
 
-/* Container chính dùng Flex */
-.num-item-flex {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Khoảng cách cứng giữa số và chữ */
+.service-content h5 {
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
 
-/* Phần chứa con số */
-.num-side {
-    font-family: 'Oswald', sans-serif;
-    font-size: 45px; /* Giảm size xuống một chút cho thanh thoát */
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.1); /* Độ mờ vừa phải để vẫn nhìn thấy số */
-    line-height: 1;
-    min-width: 55px; /* Cố định độ rộng để các hàng thẳng cột với nhau */
+/* --- EXPERTS --- */
+.expert-card {
+    position: relative;
+    background: var(--dark-card);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    transition: var(--transition);
 }
 
-/* Phần chứa nội dung chữ */
-.content-side {
-    border-left: 1px solid rgba(255, 255, 255, 0.1); /* Vạch ngăn mờ giữa số và chữ */
-    padding-left: 15px;
+.expert-img {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
 }
 
-.content-side h6 {
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+.expert-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%);
+    transition: var(--transition);
 }
 
-.content-side p {
-    font-size: 12px;
-    opacity: 0.7;
+.expert-card:hover .expert-img img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
 }
 
-/* --- CÁC CÔNG VIỆC CHÍNH --- */
-.section-title { border-left: 5px solid var(--primary-red); padding-left: 15px; font-weight: bold; font-size: 24px; }
-.work-card { background: var(--card-bg); transition: 0.3s; }
-.work-card:hover { background: #2A2A2A; }
-
-/* --- THẺ TIN TỨC --- */
-.news-card { border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
-.news-img-wrap img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-
-/* --- CHÂN TRANG (FOOTER) --- */
-.social-icon {
-    width: 35px; height: 35px; border-radius: 50%; display: flex;
-    align-items: center; justify-content: center; color: #fff;
-}
-.fb { background: #1877F2; } .yt { background: #FF0000; } .ig { background: #E4405F; }
-.x-small { font-size: 11px; letter-spacing: 0.5px; opacity: 0.6; }
-/* =============================================
-   HIỆU ỨNG ĐỘNG SIÊU MƯỢT (ULTRA SMOOTH)
-   ============================================= */
-
-/* 1. Thiết lập chung cho các thẻ link chứa ảnh */
-.card-ani-link, .news-ani-link, .img-ani-link {
-    display: block;
-    text-decoration: none;
-    outline: none;
-    /* Sử dụng cubic-bezier để chuyển động có gia tốc mượt mà */
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+.expert-label {
+    position: absolute;
+    bottom: -15px;
+    left: 5%;
+    width: 90%;
+    background: #1a1a1a;
+    padding: 15px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 3px solid var(--primary-red);
+    border-radius: 4px;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 92% 100%, 0 100%);
+    z-index: 2;
+    transition: var(--transition);
 }
 
-/* 2. Hiệu ứng Hover cho Banner & News Card */
-.card-ani-link:hover, .news-ani-link:hover {
-    transform: translateY(-12px); /* Nhấc nhẹ card lên */
+.expert-label h5 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #fff;
 }
 
-.card-ani-link:hover .banner-card, 
-.news-ani-link:hover .news-card {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(200, 0, 0, 0.2);
+.expert-label p {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.expert-card:hover .expert-label {
+    transform: translateY(-5px);
+    background: #222;
     border-color: var(--primary-red);
 }
 
-/* Phóng to ảnh bên trong mượt mà */
-.banner-img, .news-img-wrap img {
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
-}
-
-.card-ani-link:hover .banner-img, 
-.news-ani-link:hover .news-img-wrap img {
-    transform: scale(1.12); /* Phóng to nhẹ */
-    filter: brightness(1.1) contrast(1.05); /* Làm ảnh trong trẻo hơn */
-}
-
-/* 3. Hiệu ứng Click (Active) - Cực mượt */
-.card-ani-link:active, 
-.news-ani-link:active, 
-.img-ani-link:active {
-    transform: scale(0.94); /* Hiệu ứng lún xuống */
-    filter: brightness(0.8); /* Tối lại một chút khi nhấn */
-    transition: transform 0.15s ease-out; /* Phản hồi nhấn cực nhanh */
-}
-
-/* 4. Hiệu ứng riêng cho ảnh xe ở phần Hero */
-.img-ani-link .hero-img-box {
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Hiệu ứng hơi nảy (Back-out) */
-}
-
-.img-ani-link:hover .hero-img-box {
-    filter: drop-shadow(0 0 40px rgba(255, 0, 0, 0.4));
-    transform: scale(1.03) rotate(-1deg);
-}
-
-/* 5. Hiệu ứng đường kẻ dưới cho Menu (Nav-link) */
-.nav-link {
+/* --- WHY CHOOSE US --- */
+.why-img-box {
     position: relative;
 }
-.nav-link::after {
-    content: '';
+
+.experience-badge {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
+    bottom: -15px;
+    left: 15px;
     background: var(--primary-red);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-.nav-link:hover::after {
-    width: 80%;
+    padding: 15px 25px;
+    transform: skew(-10deg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-/* --- STYLE CHO 3 THẾ MẠNH --- */
-.feature-card {
-    background: rgba(255, 255, 255, 0.02);
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    position: relative;
-    overflow: hidden;
+.experience-badge .num {
+    display: block;
+    font-size: 2.2rem;
+    line-height: 1;
+    font-weight: bold;
 }
 
-/* Hiệu ứng khi di chuột vào */
-.feature-card:hover {
-    background: rgba(204, 0, 0, 0.05);
-    border-color: rgba(204, 0, 0, 0.4) !important;
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+.experience-badge .txt {
+    font-size: 0.7rem;
+    font-weight: bold;
 }
 
-/* Style cho Icon */
-.feature-icon-box {
-    width: 70px;
-    height: 70px;
-    background: rgba(204, 0, 0, 0.1);
-    color: #cc0000;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    border-radius: 50%;
-    transition: 0.5s;
+/* --- TESTIMONIALS --- */
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 100%;
+    transition: var(--transition);
 }
 
-.feature-card:hover .feature-icon-box {
-    background: #cc0000;
-    color: white;
-    transform: rotateY(180deg); /* Xoay icon 180 độ */
+.testimonial-card:hover {
+    border-color: var(--primary-red);
+    background: rgba(217, 4, 41, 0.05);
 }
 
-/* Thẻ ở giữa nổi bật hơn */
-.active-feature {
-    background: rgba(204, 0, 0, 0.03);
-    border-color: rgba(204, 0, 0, 0.2) !important;
+/* --- FOOTER --- */
+footer {
+    background: #050505;
+    border-top: 1px solid #1a1a1a;
 }
 
-/* Animation load trang */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s forwards;
+.hover-red:hover {
+    color: var(--primary-red) !important;
 }
 
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
->>>>>>> 7c0a17d9290a9c616fcd17a738e06e326e55c725
+/* --- RESPONSIVE --- */
+@media (max-width: 991px) {
+    .hero { text-align: center; }
+    .hero-img-frame { margin-top: 40px; transform: none; }
+    .hero-img-frame img { transform: none; }
+    .watermark { display: none; }
+    .expert-label { padding: 10px 5px; }
+}
+
+@media (max-width: 768px) {
+    .expert-label h5 { font-size: 0.9rem; }
+    .expert-label p { font-size: 0.65rem; }
 }

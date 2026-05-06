@@ -1,132 +1,236 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garage Auto - Design by Lê Xuân Đức</title>
+    <title>RedShield Garage - The Art of Precision</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="index.html">GARAGE<span class="text-danger">AUTO</span></a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto text-uppercase fw-semibold small">
-                    <li class="nav-item"><a class="nav-link px-3 active" href="index.html">Trang chủ</a></li>
-                     <li class="nav-item"><a class="nav-link px-3" href="giơi-thieu.html">Giới thiệu</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="dich-vu.html">Dịch vụ</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="tin-tuc.html">Tin tức</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="lien-he.html">Liên hệ</a></li>
-                </ul>
-                <button class="btn-reg">
-                    <a href="dangky.html" class="text-white text-decoration-none">ĐĂNG KÝ NGAY!</a>
+    <!-- NAVBAR -->
+    <!-- HEADER SECTION -->
+    <header>
+        
+        <!-- Main Navbar (Theo mẫu bạn gửi) -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top py-3 border-bottom border-secondary border-opacity-10">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-3 text-uppercase oswald" href="index.html">
+                    REDSHIELD<span class="text-danger">GARAGE</span>
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto text-uppercase fw-semibold small">
+                        <li class="nav-item"><a class="nav-link px-3 active" href="index.html">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="giơi-thieu.html">Giới thiệu</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="dich-vu.html">Dịch vụ</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="tin-tuc.html">Tin tức</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="lien-he.html">Liên hệ</a></li>
+                    </ul>
+                    <div class="nav-action">
+                        <a href="dangky.html" class="btn-reg text-white text-decoration-none fw-bold small">
+                            ĐĂNG KÝ NGAY!
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <section class="hero position-relative d-flex align-items-center">
-        <div class="watermark">GARAGE</div>
-        <div class="container position-relative z-2">
-            <div class="row align-items-center g-5">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="watermark">PRECISION</div>
+        <div class="container position-relative">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-6 py-5">
+                    <h6 class="text-danger fw-bold ls-2">SINCE 1998 - PREMIUM SERVICE</h6>
+                    <h1 class="oswald fw-bold display-3 text-white">THE ART OF <br> <span class="text-outline">PRECISION</span></h1>
+                    <p class="opacity-75 mb-4 fs-5">Chúng tôi không chỉ sửa chữa xe, chúng tôi tối ưu hóa từng chi tiết nhỏ để mang lại trải nghiệm lái hoàn hảo nhất cho bạn.</p>
+                    <a href="#" class="btn-skew"><span>ĐẶT LỊCH TƯ VẤN NGAY</span></a>
+                </div>
                 <div class="col-lg-6">
-                    <h1 class="display-1 fw-bold mb-0">SỬA XE</h1>
-                    <h1 class="display-1 fw-bold text-danger mb-4">AUTO</h1>
-                    <p class="text-secondary w-75 mb-4">Dịch vụ sửa chữa, bảo dưỡng ô tô chuyên nghiệp, tận tâm tại Nghệ An. Đội ngũ thợ tay nghề cao, linh kiện chính hãng.</p>
-                    <button class="btn-discover">
-                        <a href="dich-vu.html" class="text-white text-decoration-none">KHÁM PHÁ DỊCH VỤ</a>
-                    </button>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <a href="chi-tiet-xe.html" class="img-ani-link">
-                        <div class="hero-img-box">
-                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800" class="img-fluid" alt="Car">
-                        </div>
-                    </a>
+                    <div class="hero-img-frame">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop" alt="Luxury Car" class="img-fluid">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- STATS -->
+    <div class="stats-box">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-6 col-md-3">
+                    <h2 class="oswald fw-bold text-danger">25+</h2>
+                    <p class="small text-uppercase opacity-75 mb-0">Năm kinh nghiệm</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h2 class="oswald fw-bold text-danger">15k+</h2>
+                    <p class="small text-uppercase opacity-75 mb-0">Dự án hoàn thành</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h2 class="oswald fw-bold text-danger">100%</h2>
+                    <p class="small text-uppercase opacity-75 mb-0">Linh kiện OEM</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h2 class="oswald fw-bold text-danger">24/7</h2>
+                    <p class="small text-uppercase opacity-75 mb-0">Hỗ trợ kỹ thuật</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION - UPGRADED -->
     <section class="py-5">
         <div class="container">
+            <div class="section-header mb-5">
+                <h6 class="text-danger border-start border-danger border-3 ps-2 small fw-bold text-uppercase">Dịch vụ chuyên sâu</h6>
+                <h2 class="oswald fw-bold display-6 text-white">GIẢI PHÁP KỸ THUẬT TOÀN DIỆN</h2>
+            </div>
             <div class="row g-4">
+                <!-- Hạng mục 1: Bảo dưỡng -->
                 <div class="col-md-4">
-                    <a href="khuyen-mai.html" class="card-ani-link">
-                        <div class="banner-card">
-                            <img src="images/uudai.avif" alt="Discount" class="banner-img">
-                            <span>GIẢM GIÁ MỖI THÁNG</span>
+                    <div class="service-card h-100">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1932&auto=format&fit=crop" alt="Bảo dưỡng">
+                            <div class="service-icon-overlay"><i class="fas fa-tools"></i></div>
                         </div>
-                    </a>
+                        <div class="service-content">
+                            <h5 class="oswald text-danger">BẢO DƯỠNG ĐỊNH KỲ</h5>
+                            <p class="small opacity-75">Kiểm tra 150 điểm kỹ thuật, thay dầu, lọc gió và tối ưu hiệu suất vận hành theo tiêu chuẩn hãng.</p>
+                        </div>
+                    </div>
                 </div>
+                <!-- Hạng mục 2: Máy Gầm -->
                 <div class="col-md-4">
-                    <a href="phu-tung.html" class="card-ani-link">
-                        <div class="banner-card">
-                            <img src="images/phanh đĩa.avif" alt="Parts" class="banner-img">
-                            <span>PHỤ TÙNG CHÍNH HÃNG</span>
+                    <div class="service-card h-100">
+                        <div class="service-img">
+                            <img src="https://images.pexels.com/photos/4489749/pexels-photo-4489749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Máy Gầm">
+                            <div class="service-icon-overlay"><i class="fas fa-engine"></i></div>
                         </div>
-                    </a>
+                        <div class="service-content">
+                            <h5 class="oswald text-danger">ĐẠI TU MÁY - GẦM</h5>
+                            <p class="small opacity-75">Phục hồi công suất động cơ, xử lý triệt để tiếng ồn hệ thống treo và cân chỉnh thước lái điện tử.</p>
+                        </div>
+                    </div>
                 </div>
+                <!-- Hạng mục 3: Điện - Điện tử -->
                 <div class="col-md-4">
-                    <a href="cong-nghe.html" class="card-ani-link">
-                        <div class="banner-card">
-                            <img src="images/maymoc.jpg" alt="Machine" class="banner-img">
-                            <span>MÁY MÓC HIỆN ĐẠI</span>
+                    <div class="service-card h-100">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2070&auto=format&fit=crop" alt="Điện tử">
+                            <div class="service-icon-overlay"><i class="fas fa-microchip"></i></div>
                         </div>
-                    </a>
+                        <div class="service-content">
+                            <h5 class="oswald text-danger">ĐIỆN - ĐIỆN TỬ Ô TÔ</h5>
+                            <p class="small opacity-75">Quét lỗi bằng máy chẩn đoán chuyên hãng, lập trình ECU và xử lý hệ thống túi khí, ABS, ESP.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hạng mục 4: Đồng Sơn -->
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=2071&auto=format&fit=crop" alt="Đồng Sơn">
+                            <div class="service-icon-overlay"><i class="fas fa-paint-roller"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h5 class="oswald text-danger">ĐỒNG SƠN PHỤC HỒI</h5>
+                            <p class="small opacity-75">Công nghệ pha màu vi tính chuẩn 99%, phòng sơn sấy khép kín giúp bề mặt sáng bóng như mới.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hạng mục 5: Điều hòa -->
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1504222490345-c075b6008014?q=80&w=2070&auto=format&fit=crop" alt="Điều hòa">
+                            <div class="service-icon-overlay"><i class="fas fa-snowflake"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h5 class="oswald text-danger">HỆ THỐNG ĐIỀU HÒA</h5>
+                            <p class="small opacity-75">Nạp gas máy lạnh R134a/R1234yf, vệ sinh nội soi giàn lạnh không cần tháo taplo.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hạng mục 6: Detailing -->
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" alt="Detailing">
+                            <div class="service-icon-overlay"><i class="fas fa-car-clean"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h5 class="oswald text-danger">DETAILING & CERAMIC</h5>
+                            <p class="small opacity-75">Đánh bóng hiệu chỉnh bề mặt sơn, phủ Ceramic bảo vệ và vệ sinh khoang máy chi tiết.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container my-5">
-        <div class="row g-0 rounded-4 overflow-hidden align-items-stretch shadow-lg">
-            <div class="col-lg-5 expertise-red p-5 d-flex flex-column justify-content-center">
-                <h2 class="display-5 fw-bold mb-0 text-white text-uppercase">Thợ giỏi</h2>
-                <h2 class="display-5 fw-bold mb-4 text-white text-uppercase">Nhiều kinh nghiệm</h2>
-                <p class="small opacity-75 mb-0 text-white">Đội ngũ kỹ thuật viên tận tâm, xử lý mọi vấn đề của xe nhanh chóng, chính xác.</p>
+    <!-- EXPERTS SECTION -->
+    <section class="py-5 bg-dark-2">
+        <div class="container">
+            <div class="section-header mb-5">
+                <h6 class="text-danger border-start border-danger border-3 ps-2 small fw-bold text-uppercase">Đội ngũ</h6>
+                <h2 class="oswald fw-bold display-6 text-white">CHUYÊN GIA CỦA CHÚNG TÔI</h2>
             </div>
-            <div class="col-lg-7 expertise-black p-5">
-                <div class="row g-4">
-                    <div class="col-6 mb-3">
-                        <div class="num-item-flex">
-                            <div class="num-side">01</div>
-                            <div class="content-side">
-                                <h6 class="text-warning fw-bold mb-1">Thay dầu</h6>
-                                <p class="small text-secondary mb-0">Kiểm tra máy miễn phí.</p>
-                            </div>
+            <div class="row g-4">
+                <!-- La Văn Tụ -->
+                <div class="col-6 col-lg-3">
+                    <div class="expert-card">
+                        <div class="expert-img">
+                            <img src="images/tu.jpg" alt="La Văn Tụ">
+                        </div>
+                        <div class="expert-label">
+                            <h5 class="oswald text-uppercase">La Văn Tụ</h5>
+                            <p>Cố vấn Dịch vụ</p>
                         </div>
                     </div>
-                    <div class="col-6 mb-3">
-                        <div class="num-item-flex">
-                            <div class="num-side">02</div>
-                            <div class="content-side">
-                                <h6 class="text-warning fw-bold mb-1">Sơn xe</h6>
-                                <p class="small text-secondary mb-0">Sơn hấp công nghệ mới.</p>
-                            </div>
+                </div>
+                <!-- Vi Trung Nguyễn -->
+                <div class="col-6 col-lg-3">
+                    <div class="expert-card">
+                        <div class="expert-img">
+                            <img src="images/nguyen.jpg" alt="Vi Trung Nguyễn">
+                        </div>
+                        <div class="expert-label">
+                            <h5 class="oswald text-uppercase">Vi Trung Nguyễn</h5>
+                            <p>Giám đốc Kỹ thuật</p>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="num-item-flex">
-                            <div class="num-side">03</div>
-                            <div class="content-side">
-                                <h6 class="text-warning fw-bold mb-1">Máy lạnh</h6>
-                                <p class="small text-secondary mb-0">Nạp gas, vệ sinh dàn lạnh.</p>
-                            </div>
+                </div>
+                <!-- Lê Xuân Đức -->
+                <div class="col-6 col-lg-3">
+                    <div class="expert-card">
+                        <div class="expert-img">
+                            <img src="images/duc.jpg" alt="Lê Xuân Đức">
+                        </div>
+                        <div class="expert-label">
+                            <h5 class="oswald text-uppercase">Lê Xuân Đức</h5>
+                            <p>Kỹ thuật viên Máy - Gầm</p>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="num-item-flex">
-                            <div class="num-side">04</div>
-                            <div class="content-side">
-                                <h6 class="text-warning fw-bold mb-1">Cứu hộ</h6>
-                                <p class="small text-secondary mb-0">Hỗ trợ 24/7 tận nơi.</p>
-                            </div>
+                </div>
+                <!-- Trần Thị Dy Na -->
+                <div class="col-6 col-lg-3">
+                    <div class="expert-card">
+                        <div class="expert-img">
+                            <img src="images/na.jpg" alt="Trần Thị Dy Na">
+                        </div>
+                        <div class="expert-label">
+                            <h5 class="oswald text-uppercase">Trần Thị Dy Na</h5>
+                            <p>Chuyên gia Hệ thống Điện & Điện tử Ô tô</p>
                         </div>
                     </div>
                 </div>
@@ -134,74 +238,106 @@
         </div>
     </section>
 
+    <!-- WHY CHOOSE US -->
     <section class="py-5">
         <div class="container">
-            <div class="section-title mb-5 text-white">CÁC CÔNG VIỆC CHÍNH</div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="work-card h-100 p-4 border-start border-danger border-4">
-                        <h5 class="fw-bold mb-3 text-white">Sửa chữa máy gầm</h5>
-                        <p class="small text-secondary mb-0">Xử lý triệt để các vấn đề về động cơ, hộp số và hệ thống lái, giúp xe vận hành êm ái hơn.</p>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h6 class="text-danger fw-bold small text-uppercase">Ưu điểm nổi bật</h6>
+                    <h2 class="oswald fw-bold display-5 mb-4 text-white">TẠI SAO 5000+ CHỦ XE TIN TƯỞNG?</h2>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="feature-icon me-4"><i class="fas fa-shield-alt text-danger fs-3"></i></div>
+                        <div>
+                            <h5 class="oswald text-white">PHỤ TÙNG CHÍNH HÃNG</h5>
+                            <p class="small opacity-50">Cam kết sử dụng linh kiện OEM/Chính hãng với chế độ bảo hành dài hạn.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="feature-icon me-4"><i class="fas fa-microchip text-danger fs-3"></i></div>
+                        <div>
+                            <h5 class="oswald text-white">CÔNG NGHỆ HIỆN ĐẠI</h5>
+                            <p class="small opacity-50">Trang bị hệ thống máy chẩn đoán chuyên dụng cho các dòng xe cao cấp.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="feature-icon me-4"><i class="fas fa-handshake text-danger fs-3"></i></div>
+                        <div>
+                            <h5 class="oswald text-white">MINH BẠCH CHI PHÍ</h5>
+                            <p class="small opacity-50">Báo giá chi tiết trước khi sửa chữa, không phát sinh chi phí ngoài dự kiến.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="work-card h-100 p-4 border-start border-danger border-4">
-                        <h5 class="fw-bold mb-3 text-white">Điện ô tô</h5>
-                        <p class="small text-secondary mb-0">Chẩn đoán lỗi bằng máy hiện đại, sửa chữa hệ thống điện thân xe, cảm biến và ECU.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="work-card h-100 p-4 border-start border-danger border-4">
-                        <h5 class="fw-bold mb-3 text-white">Rửa xe & Nội thất</h5>
-                        <p class="small text-secondary mb-0">Dọn dẹp nội thất, đánh bóng sơn và vệ sinh khoang máy bằng hơi nước nóng chuyên dụng.</p>
+                <div class="col-lg-6">
+                    <div class="why-img-box position-relative ps-lg-5">
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=2071&auto=format&fit=crop" class="img-fluid rounded-4 shadow-lg" alt="Garage Workshop">
+                        <div class="experience-badge">
+                            <span class="num oswald">25</span>
+                            <span class="txt">NĂM<br>UY TÍN</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5 bg-black">
+    <!-- FEEDBACK -->
+    <section class="py-5 bg-dark-2">
         <div class="container">
-            <div class="section-title mb-5 text-white text-uppercase">Tin tức cửa hàng</div>
+            <h6 class="text-danger text-center fw-bold small text-uppercase">Phản hồi khách hàng</h6>
+            <h2 class="oswald fw-bold text-center mb-5 display-6 text-white">ĐÁNH GIÁ THỰC TẾ</h2>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <a href="tin-tuc1.html" class="news-ani-link">
-                        <div class="news-card h-100 bg-dark">
-                            <div class="news-img-wrap"><img src="images/uudai.avif" alt="News"></div>
-                            <div class="p-4 flex-grow-1">
-                                <h6 class="fw-bold mb-2 text-uppercase text-white">Ưu đãi bảo dưỡng tháng 4</h6>
-                                <p class="small text-secondary mb-0">Tặng gói vệ sinh khoang máy khi thực hiện bảo dưỡng định kỳ.</p>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="fst-italic opacity-75 small">"Dịch vụ chuyên nghiệp, quy trình rõ ràng và chi phí hợp lý. Tôi hoàn toàn tin tưởng khi giao xe tại đây."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://i.pravatar.cc/100?u=1" class="rounded-circle me-3" width="45">
+                            <div>
+                                <h6 class="mb-0 text-white small fw-bold">Lê Xuân Đức</h6>
+                                <p class="mb-0 x-small opacity-50">Chủ xe Mazda 3</p>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <a href="tin-tuc2.html" class="news-ani-link">
-                        <div class="news-card h-100 bg-dark">
-                            <div class="news-img-wrap"><img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500" alt="News"></div>
-                            <div class="p-4 flex-grow-1">
-                                <h6 class="fw-bold mb-2 text-uppercase text-white">Mẹo lái xe an toàn</h6>
-                                <p class="small text-secondary mb-0">Cách kiểm tra phanh và lốp xe trước những chuyến đi dài ngày.</p>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="fst-italic opacity-75 small">"Garage sạch sẽ, kỹ thuật viên tay nghề cao. Phụ tùng thay thế luôn đúng cam kết chính hãng."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://i.pravatar.cc/100?u=2" class="rounded-circle me-3" width="45">
+                            <div>
+                                <h6 class="mb-0 text-white small fw-bold">Văn Đại</h6>
+                                <p class="mb-0 x-small opacity-50">Chủ xe BMW 320i</p>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <a href="tin-tuc3.html" class="news-ani-link">
-                        <div class="news-card h-100 bg-dark">
-                            <div class="news-img-wrap"><img src="images/images.avif" alt="News"></div>
-                            <div class="p-4 flex-grow-1">
-                                <h6 class="fw-bold mb-2 text-uppercase text-white">Công nghệ 3D mới</h6>
-                                <p class="small text-secondary mb-0">Sử dụng máy cân chỉnh thước lái 3D Hunter hiện đại nhất.</p>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="fst-italic opacity-75 small">"Thái độ phục vụ rất tốt, nhân viên tư vấn nhiệt tình. Xe vận hành êm ái hơn hẳn sau khi bảo dưỡng."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <img src="https://i.pravatar.cc/100?u=3" class="rounded-circle me-3" width="45">
+                            <div>
+                                <h6 class="mb-0 text-white small fw-bold">Trần Thị Dy Na</h6>
+                                <p class="mb-0 x-small opacity-50">Chủ xe Mercedes C200</p>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-<footer class="pt-5 mt-5 border-top border-secondary border-opacity-10 bg-black">
+    <!-- FOOTER -->
+    <footer class="pt-5 mt-5 border-top border-secondary border-opacity-10 bg-black">
         <div class="container">
             <div class="row g-5 pb-5">
                 <div class="col-lg-4">
@@ -262,269 +398,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garage Auto - Design by Lê Xuân Đức</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="index.html">GARAGE<span class="text-danger">AUTO</span></a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto text-uppercase fw-semibold small">
-                    <li class="nav-item"><a class="nav-link px-3 active" href="index.html">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="dich-vu.html">Dịch vụ</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="tin-tuc.html">Tin tức</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="lien-he.html">Liên hệ</a></li>
-                </ul>
-                <button class="btn-reg">
-                    <a href="dangky.html" class="text-white text-decoration-none">ĐĂNG KÝ NGAY!</a>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero position-relative d-flex align-items-center">
-        <div class="watermark">GARAGE</div>
-        <div class="container position-relative z-2">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <h1 class="display-1 fw-bold mb-0">SỬA XE</h1>
-                    <h1 class="display-1 fw-bold text-danger mb-4">AUTO</h1>
-                    <p class="text-secondary w-75 mb-4">Dịch vụ sửa chữa, bảo dưỡng ô tô chuyên nghiệp, tận tâm tại Nghệ An. Đội ngũ thợ tay nghề cao, linh kiện chính hãng.</p>
-                    <button class="btn-discover">
-                        <a href="dich-vu.html" class="text-white text-decoration-none">KHÁM PHÁ DỊCH VỤ</a>
-                    </button>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <a href="chi-tiet-xe.html" class="img-ani-link">
-                        <div class="hero-img-box">
-                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800" class="img-fluid" alt="Car">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <a href="khuyen-mai.html" class="card-ani-link">
-                        <div class="banner-card">
-                            <img src="images/uudai.avif" alt="Discount" class="banner-img">
-                            <span>GIẢM GIÁ MỖI THÁNG</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="phu-tung.html" class="card-ani-link">
-                        <div class="banner-card">
-                            <img src="images/phanh đĩa.avif" alt="Parts" class="banner-img">
-                            <span>PHỤ TÙNG CHÍNH HÃNG</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="cong-nghe.html" class="card-ani-link">
-                        <div class="banner-card">
-                            <img src="images/maymoc.jpg" alt="Machine" class="banner-img">
-                            <span>MÁY MÓC HIỆN ĐẠI</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container my-5">
-        <div class="row g-0 rounded-4 overflow-hidden align-items-stretch shadow-lg">
-            <div class="col-lg-5 expertise-red p-5 d-flex flex-column justify-content-center">
-                <h2 class="display-5 fw-bold mb-0 text-white text-uppercase">Thợ giỏi</h2>
-                <h2 class="display-5 fw-bold mb-4 text-white text-uppercase">Nhiều kinh nghiệm</h2>
-                <p class="small opacity-75 mb-0 text-white">Đội ngũ kỹ thuật viên tận tâm, xử lý mọi vấn đề của xe nhanh chóng, chính xác.</p>
-            </div>
-            <div class="col-lg-7 expertise-black p-5">
-                <div class="row g-4">
-                    <div class="col-6 mb-3">
-                        <div class="num-item-flex">
-                            <div class="num-side">01</div>
-                            <div class="content-side">
-                                <h6 class="text-warning fw-bold mb-1">Thay dầu</h6>
-                                <p class="small text-secondary mb-0">Kiểm tra máy miễn phí.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 mb-3">
-                        <div class="num-item-flex">
-                            <div class="num-side">02</div>
-                            <div class="content-side">
-                                <h6 class="text-warning fw-bold mb-1">Sơn xe</h6>
-                                <p class="small text-secondary mb-0">Sơn hấp công nghệ mới.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="num-item-flex">
-                            <div class="num-side">03</div>
-                            <div class="content-side">
-                                <h6 class="text-warning fw-bold mb-1">Máy lạnh</h6>
-                                <p class="small text-secondary mb-0">Nạp gas, vệ sinh dàn lạnh.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="num-item-flex">
-                            <div class="num-side">04</div>
-                            <div class="content-side">
-                                <h6 class="text-warning fw-bold mb-1">Cứu hộ</h6>
-                                <p class="small text-secondary mb-0">Hỗ trợ 24/7 tận nơi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-5">
-        <div class="container">
-            <div class="section-title mb-5 text-white">CÁC CÔNG VIỆC CHÍNH</div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="work-card h-100 p-4 border-start border-danger border-4">
-                        <h5 class="fw-bold mb-3 text-white">Sửa chữa máy gầm</h5>
-                        <p class="small text-secondary mb-0">Xử lý triệt để các vấn đề về động cơ, hộp số và hệ thống lái, giúp xe vận hành êm ái hơn.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="work-card h-100 p-4 border-start border-danger border-4">
-                        <h5 class="fw-bold mb-3 text-white">Điện ô tô</h5>
-                        <p class="small text-secondary mb-0">Chẩn đoán lỗi bằng máy hiện đại, sửa chữa hệ thống điện thân xe, cảm biến và ECU.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="work-card h-100 p-4 border-start border-danger border-4">
-                        <h5 class="fw-bold mb-3 text-white">Rửa xe & Nội thất</h5>
-                        <p class="small text-secondary mb-0">Dọn dẹp nội thất, đánh bóng sơn và vệ sinh khoang máy bằng hơi nước nóng chuyên dụng.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-5 bg-black">
-        <div class="container">
-            <div class="section-title mb-5 text-white text-uppercase">Tin tức cửa hàng</div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <a href="tin-tuc1.html" class="news-ani-link">
-                        <div class="news-card h-100 bg-dark">
-                            <div class="news-img-wrap"><img src="images/uudai.avif" alt="News"></div>
-                            <div class="p-4 flex-grow-1">
-                                <h6 class="fw-bold mb-2 text-uppercase text-white">Ưu đãi bảo dưỡng tháng 4</h6>
-                                <p class="small text-secondary mb-0">Tặng gói vệ sinh khoang máy khi thực hiện bảo dưỡng định kỳ.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a href="tin-tuc2.html" class="news-ani-link">
-                        <div class="news-card h-100 bg-dark">
-                            <div class="news-img-wrap"><img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500" alt="News"></div>
-                            <div class="p-4 flex-grow-1">
-                                <h6 class="fw-bold mb-2 text-uppercase text-white">Mẹo lái xe an toàn</h6>
-                                <p class="small text-secondary mb-0">Cách kiểm tra phanh và lốp xe trước những chuyến đi dài ngày.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a href="tin-tuc3.html" class="news-ani-link">
-                        <div class="news-card h-100 bg-dark">
-                            <div class="news-img-wrap"><img src="images/images.avif" alt="News"></div>
-                            <div class="p-4 flex-grow-1">
-                                <h6 class="fw-bold mb-2 text-uppercase text-white">Công nghệ 3D mới</h6>
-                                <p class="small text-secondary mb-0">Sử dụng máy cân chỉnh thước lái 3D Hunter hiện đại nhất.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<footer class="pt-5 mt-5 border-top border-secondary border-opacity-10 bg-black">
-        <div class="container">
-            <div class="row g-5 pb-5">
-                <div class="col-lg-4">
-                    <h5 class="fw-bold mb-4 text-white">GARAGE<span class="text-danger">AUTO</span></h5>
-                    <p class="small text-secondary lh-lg">
-                        Hệ thống sửa chữa ô tô uy tín hàng đầu tại Nghệ An. Chúng tôi cam kết mang lại dịch vụ chất lượng cao nhất với trang thiết bị hiện đại và đội ngũ kỹ thuật viên chuyên nghiệp.
-                    </p>
-                    <div class="d-flex gap-2 mt-4">
-                        <a href="https://facebook.com" class="social-icon fb text-decoration-none"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://youtube.com" class="social-icon yt text-decoration-none"><i class="fab fa-youtube"></i></a>
-                        <a href="https://instagram.com" class="social-icon ig text-decoration-none"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-                    <h6 class="text-danger small fw-bold mb-4 text-uppercase">Dịch vụ</h6>
-                    <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="dich-vu.html#may-gam" class="text-secondary text-decoration-none footer-link">Sửa máy gầm</a></li>
-                        <li class="mb-2"><a href="dich-vu.html#son-xe" class="text-secondary text-decoration-none footer-link">Sơn xe cao cấp</a></li>
-                        <li class="mb-2"><a href="dich-vu.html#dien-lanh" class="text-secondary text-decoration-none footer-link">Điện - Lạnh ô tô</a></li>
-                        <li><a href="dich-vu.html#noi-that" class="text-secondary text-decoration-none footer-link">Chăm sóc nội thất</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2">
-                    <h6 class="text-danger small fw-bold mb-4 text-uppercase">Hỗ trợ</h6>
-                    <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="tin-tuc.html" class="text-secondary text-decoration-none footer-link">Tin tức mới nhất</a></li>
-                        <li class="mb-2"><a href="dang-ky.html" class="text-secondary text-decoration-none footer-link">Đặt lịch hẹn</a></li>
-                        <li class="mb-2"><a href="lien-he.html" class="text-secondary text-decoration-none footer-link">Tư vấn kỹ thuật</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none footer-link">Chính sách bảo hành</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 text-lg-end">
-                    <h6 class="text-danger small fw-bold mb-4 text-uppercase text-white">Liên hệ trực tiếp</h6>
-                    <p class="small text-secondary mb-1"><i class="fas fa-map-marker-alt me-2 text-danger"></i>Địa chỉ: TP. Vinh, Nghệ An</p>
-                    <p class="small text-secondary mb-1"><i class="fas fa-phone-alt me-2 text-danger"></i>Hotline: 090.XXX.XXXX</p>
-                    <p class="small text-secondary"><i class="fas fa-envelope me-2 text-danger"></i>Email: contact@garageauto.vn</p>
-                    
-                    <div class="mt-4">
-                        <button class="btn btn-outline-danger btn-sm px-4 fw-bold"><a href="lien-he.html" class="text-danger text-decoration-none">NHẬN TƯ VẤN</a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-top border-secondary border-opacity-10 py-4 d-flex flex-column flex-md-row justify-content-between align-items-center small text-secondary x-small text-uppercase">
-                <p class="mb-md-0 mb-3 text-center text-md-start">
-                    © 2026 GARAGE AUTO SERVICE. THIẾT KẾ & PHÁT TRIỂN BỞI <span class="text-white fw-bold">LÊ XUÂN ĐỨC</span>
-                </p>
-                <div class="d-flex gap-4">
-                    <a href="#" class="text-secondary text-decoration-none footer-link">ĐIỀU KHOẢN</a>
-                    <a href="#" class="text-secondary text-decoration-none footer-link">CHÍNH SÁCH BẢO MẬT</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
 </html>

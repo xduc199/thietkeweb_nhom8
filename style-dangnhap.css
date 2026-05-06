@@ -1,194 +1,131 @@
-<<<<<<< HEAD
-/* --- LOGIN STYLES --- */
+/* ============================================================
+   1. BIẾN TOÀN CỤC & CẤU HÌNH CHUNG
+   ============================================================ */
 :root {
-    --primary-red: #cc0000;
+    --primary-red: #ff0000;      /* Đỏ chủ đạo */
+    --dark-red: #800000;         /* Đỏ đậm cho nút */
+    --accent-yellow: #FFC107;    /* Vàng điểm nhấn */
+    --bg-black: #0d0d0d;         /* Màu nền đen xám */
+    --card-bg: #1a1a1a;          /* Màu nền của các thẻ card */
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --glass-border: rgba(255, 255, 255, 0.08);
 }
 
-.Oswald-font { font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
-
-/* Căn giữa Form theo chiều dọc */
-.login-section {
-    min-height: 80vh;
+body { 
+    background: #000; 
+    color: #fff; 
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.6; 
+    overflow-x: hidden;
 }
 
-/* Custom Input */
-.form-control {
-    padding: 12px;
-    transition: 0.3s;
+h1, h2, h3, h4, h5, .navbar-brand { 
+    font-family: 'Oswald', sans-serif; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
 }
 
-.form-control:focus {
-    border-color: var(--primary-red) !important;
-    box-shadow: none !important;
+/* ============================================================
+   2. THANH ĐIỀU HƯỚNG (NAVBAR) & NÚT ĐĂNG KÝ
+   ============================================================ */
+.navbar {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px dashed #333;
 }
 
-.input-group-text {
-    border-right: none;
+.nav-link {
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative;
+    transition: var(--transition);
 }
 
-/* Checkbox đỏ */
-.form-check-input:checked {
-    background-color: var(--primary-red);
-    border-color: var(--primary-red);
+/* Hiệu ứng gạch chân khi hover menu */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--primary-red);
+    transition: var(--transition);
 }
 
-/* Hiệu ứng mượt */
-.login-box {
-    transition: 0.4s;
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link:hover, .nav-link.active { color: var(--primary-red) !important; }
+
+/* NÚT ĐĂNG KÝ VÁT CHÉO - CHUẨN FORM ẢNH */
+.btn-reg { 
+    background: var(--dark-red) !important; 
+    color: #fff !important; 
+    padding: 10px 30px !important; 
+    border: none !important; 
+    font-weight: bold; 
+    font-family: 'Oswald', sans-serif;
+    /* Góc vát chuẩn */
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%); 
+    cursor: pointer; 
+    transition: var(--transition);
+    display: inline-block;
+    text-decoration: none;
 }
 
-.login-box:hover {
-    border-color: rgba(204, 0, 0, 0.3) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+.btn-reg:hover { 
+    background: var(--primary-red) !important; 
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
 }
 
+/* ============================================================
+   3. STYLE CHO TIN TỨC & BÀI VIẾT (Tối ưu từ file News)
+   ============================================================ */
+.news-item {
+    transition: var(--transition);
+    border-radius: 15px;
+    background: var(--card-bg);
+    overflow: hidden;
+}
+
+.news-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+}
+
+.news-zoom {
+    transition: transform 0.8s ease;
+    object-fit: cover;
+}
+
+.news-item:hover .news-zoom { transform: scale(1.1) rotate(1deg); }
+
+/* Sidebar cho trang tin tức */
+.sidebar-box {
+    background: var(--bg-black);
+    border: 1px solid var(--glass-border);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+/* ============================================================
+   4. HIỆU ỨNG ĐỘNG (ANIMATIONS)
+   ============================================================ */
 .ani-fade-up {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: fadeInUp 0.8s forwards;
 }
 
-@keyframes fadeUp {
+@keyframes fadeInUp {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.hover-white:hover {
-    color: white !important;
-    transition: 0.3s;
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
-.smooth-click:active {
-    transform: scale(0.97);
-}
-
-/* Header Button */
-.btn-reg-top {
-    border: 1px solid #444;
-    padding: 8px 20px;
-    font-size: 11px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.btn-reg-top:hover {
-    background: var(--primary-red);
-    border-color: var(--primary-red);
-}
-
-/* --- BỔ SUNG CHO TRANG QUÊN MẬT KHẨU --- */
-.icon-forgot {
-    width: 80px;
-    height: 80px;
-    background: rgba(204, 0, 0, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.hover-white:hover {
-    color: white !important;
-    transition: 0.3s;
-}
-
-/* Hiệu ứng lún nút khi nhấn */
-.smooth-click:active {
-    transform: scale(0.96);
-=======
-/* --- LOGIN STYLES --- */
-:root {
-    --primary-red: #cc0000;
-}
-
-.Oswald-font { font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
-
-/* Căn giữa Form theo chiều dọc */
-.login-section {
-    min-height: 80vh;
-}
-
-/* Custom Input */
-.form-control {
-    padding: 12px;
-    transition: 0.3s;
-}
-
-.form-control:focus {
-    border-color: var(--primary-red) !important;
-    box-shadow: none !important;
-}
-
-.input-group-text {
-    border-right: none;
-}
-
-/* Checkbox đỏ */
-.form-check-input:checked {
-    background-color: var(--primary-red);
-    border-color: var(--primary-red);
-}
-
-/* Hiệu ứng mượt */
-.login-box {
-    transition: 0.4s;
-}
-
-.login-box:hover {
-    border-color: rgba(204, 0, 0, 0.3) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
-}
-
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.hover-white:hover {
-    color: white !important;
-    transition: 0.3s;
-}
-
-.smooth-click:active {
-    transform: scale(0.97);
-}
-
-/* Header Button */
-.btn-reg-top {
-    border: 1px solid #444;
-    padding: 8px 20px;
-    font-size: 11px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.btn-reg-top:hover {
-    background: var(--primary-red);
-    border-color: var(--primary-red);
-}
-
-/* --- BỔ SUNG CHO TRANG QUÊN MẬT KHẨU --- */
-.icon-forgot {
-    width: 80px;
-    height: 80px;
-    background: rgba(204, 0, 0, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.hover-white:hover {
-    color: white !important;
-    transition: 0.3s;
-}
-
-/* Hiệu ứng lún nút khi nhấn */
-.smooth-click:active {
-    transform: scale(0.96);
->>>>>>> 7c0a17d9290a9c616fcd17a738e06e326e55c725
+/* Responsive */
+@media (max-width: 991px) {
+    .btn-reg { clip-path: none; border-radius: 5px; width: 100%; text-align: center; }
 }

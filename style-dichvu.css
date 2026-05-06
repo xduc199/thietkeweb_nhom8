@@ -1,697 +1,127 @@
-<<<<<<< HEAD
-/* Style chung cho khối dịch vụ */
+/* ============================================================
+   5. STYLE RIÊNG CHO TRANG DỊCH VỤ (style-dichvu.css)
+   ============================================================ */
+
+/* Header trang dịch vụ */
+header.bg-dark.bg-gradient {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1983&auto=format&fit=crop') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.Oswald-font {
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Service Card Box */
 .service-box {
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 15px;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    position: relative;
+    height: 100%;
+    transition: var(--transition);
 }
 
 .service-box:hover {
-    transform: translateY(-15px);
-    border-color: #cc0000;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px);
+    border-color: var(--primary-red);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
 }
 
-/* Hiệu ứng ảnh */
+/* Hiệu ứng ảnh dịch vụ */
 .service-img-wrap {
-    height: 220px;
+    width: 100%;
+    height: 250px;
     overflow: hidden;
+    position: relative;
 }
 
 .service-img-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.6s ease;
 }
 
 .service-box:hover .service-img-wrap img {
-    transform: scale(1.15) rotate(2deg);
-    filter: brightness(0.8);
+    transform: scale(1.1);
 }
 
-/* Nội dung chữ */
-.service-content h4 {
-    transition: 0.3s;
-}
-
-.service-box:hover .service-content h4 {
-    color: #cc0000;
-}
-
-/* Nút chi tiết */
+/* Nút xem chi tiết */
 .btn-detail {
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     display: inline-block;
     margin-top: 15px;
-    transition: 0.3s;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
 }
 
 .btn-detail i {
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .btn-detail:hover {
-    color: #cc0000;
+    color: var(--primary-red);
 }
 
 .btn-detail:hover i {
-    transform: translateX(10px);
+    transform: translateX(8px);
 }
 
-/* Font đặc trưng */
-.Oswald-font {
-    font-family: 'Oswald', sans-serif;
-}
-/* Style cho trang chi tiết */
-.main-detail-img img {
-    transition: transform 6s ease-out;
-}
-
-.main-detail-img:hover img {
-    transform: scale(1.1);
-}
-
-.step-num {
-    font-family: 'Oswald';
-    font-size: 24px;
-    font-weight: 800;
-    color: #cc0000;
-    min-width: 40px;
-    border-right: 1px solid #333;
-    height: fit-content;
-    padding-right: 15px;
-}
-
-.sidebar-box {
-    background: #111;
-    border: 1px solid #222;
-    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.sidebar-box:hover {
-    border-color: #444;
-    transform: translateX(-5px);
-}
-
-/* Hiệu ứng lún nút đặt lịch */
-.btn-light {
-    transition: 0.3s;
-}
-.btn-light:active {
-    transform: scale(0.95);
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-    color: #444;
-}
-/* --- BIẾN DÙNG CHUNG --- */
-:root {
-    --primary-red: #cc0000;
-    --dark-card: #111111;
-    --border-soft: rgba(255, 255, 255, 0.05);
-    --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* --- HIỆU ỨNG CHUYỂN ĐỘNG (SMOOTH ANIMATIONS) --- */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- CẤU TRÚC TRANG CHI TIẾT --- */
-.main-detail-img {
-    position: relative;
-    border: 1px solid var(--border-soft);
-    transition: var(--transition-smooth);
-}
-
-.main-detail-img img {
-    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.main-detail-img:hover img {
-    transform: scale(1.1);
-}
-
-/* --- QUY TRÌNH (STEPS) --- */
-.step-item {
-    background: var(--dark-card);
-    border: 1px solid var(--border-soft);
-    transition: var(--transition-smooth);
-}
-
-.step-item:hover {
-    border-color: var(--primary-red);
-    transform: translateX(10px);
-}
-
-.step-num {
-    font-family: 'Oswald', sans-serif;
-    color: var(--primary-red);
-    min-width: 50px;
-    border-right: 1px solid var(--border-soft);
-}
-
-/* --- SIDEBAR & BÁO GIÁ --- */
-.sidebar-box {
-    background: var(--dark-card);
-    border: 1px solid var(--border-soft);
-    transition: var(--transition-smooth);
-}
-
-.sidebar-box:hover {
-    border-color: var(--primary-red);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.price-item {
-    border-bottom: 1px solid var(--border-soft);
-    padding-bottom: 10px;
-}
-
-/* --- CÁC KHỐI KỸ THUẬT (TECH CARDS) --- */
-.tech-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-soft);
-    border-left: 4px solid var(--primary-red);
-    transition: var(--transition-smooth);
-}
-
-.tech-card:hover {
-    background: rgba(204, 0, 0, 0.05);
-    transform: translateY(-5px);
-}
-
-/* --- NÚT BẤM (BUTTONS) --- */
-.btn-reg-top {
-    background: transparent;
-    border: 1px solid #444;
-    color: white;
-    padding: 8px 20px;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.btn-reg-top:hover {
-    background: var(--primary-red);
-    border-color: var(--primary-red);
-    box-shadow: 0 0 15px rgba(204, 0, 0, 0.4);
-}
-
-.smooth-click:active {
-    transform: scale(0.95);
-}
-
-/* --- FOOTER & KHÁC --- */
-.Oswald-font {
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
-}
-
-.hover-red:hover {
-    color: var(--primary-red) !important;
-    cursor: pointer;
-    transition: 0.3s;
-}
-/* --- BIẾN CHỦ ĐẠO --- */
-:root {
-    --primary-red: #cc0000;
-    --dark-card: #121212;
-}
-
-.Oswald-font { font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
-
-/* --- NAVBAR CUSTOM --- */
-.btn-reg-top {
-    background: transparent;
-    border: 1px solid #444;
-    color: white;
-    padding: 8px 20px;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s ease;
-}
-.btn-reg-top:hover {
-    background: var(--primary-red);
-    border-color: var(--primary-red);
-    box-shadow: 0 0 15px rgba(204, 0, 0, 0.4);
-}
-
-/* --- HIỆU ỨNG SMOOTH --- */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- CHI TIẾT NỘI DUNG --- */
-.main-detail-img img {
-    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.main-detail-img:hover img {
-    transform: scale(1.05);
-}
-
-.tech-card, .sidebar-box {
-    background: var(--dark-card);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.4s;
-}
-
-.tech-card:hover {
-    border-color: var(--primary-red);
-    transform: translateY(-5px);
-}
-
-.price-item {
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding-bottom: 10px;
-}
-
-/* --- BUTTON HIỆU ỨNG LÚN --- */
-.smooth-click:active {
-    transform: scale(0.96);
-    transition: 0.1s;
-}
-
-.cta-box-red {
-    transition: 0.4s;
-}
-.cta-box-red:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(204, 0, 0, 0.3) !important;
-}
-
-/* --- FOOTER CUSTOM --- */
-footer {
-    background-color: #000;
-}
-
-.hover-red:hover {
-    color: var(--primary-red) !important;
-    transition: 0.3s ease;
-}
-
-/* Các biến màu sắc dùng chung */
-:root {
-    --primary-red: #cc0000;
-    --dark-card: #121212;
-}
-
-/* Font chữ chuyên dụng */
-.Oswald-font { 
-    font-family: 'Oswald', sans-serif; 
-    letter-spacing: 1px; 
-}
-
-/* Hiệu ứng mượt cho các khối */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.tech-card, .sidebar-box {
-    background: var(--dark-card);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.4s;
-}
-
-.price-item {
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding-bottom: 10px;
-}
-=======
-/* Style chung cho khối dịch vụ */
-.service-box {
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    position: relative;
-}
-
-.service-box:hover {
-    transform: translateY(-15px);
-    border-color: #cc0000;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* Hiệu ứng ảnh */
-.service-img-wrap {
-    height: 220px;
-    overflow: hidden;
-}
-
-.service-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.service-box:hover .service-img-wrap img {
-    transform: scale(1.15) rotate(2deg);
-    filter: brightness(0.8);
-}
-
-/* Nội dung chữ */
-.service-content h4 {
-    transition: 0.3s;
-}
-
-.service-box:hover .service-content h4 {
-    color: #cc0000;
-}
-
-/* Nút chi tiết */
-.btn-detail {
+/* Footer & Social Icons */
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
     color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
-    margin-top: 15px;
-    transition: 0.3s;
+    border-radius: 5px;
+    transition: var(--transition);
 }
 
-.btn-detail i {
-    transition: transform 0.3s;
-}
-
-.btn-detail:hover {
-    color: #cc0000;
-}
-
-.btn-detail:hover i {
-    transform: translateX(10px);
-}
-
-/* Font đặc trưng */
-.Oswald-font {
-    font-family: 'Oswald', sans-serif;
-}
-/* Style cho trang chi tiết */
-.main-detail-img img {
-    transition: transform 6s ease-out;
-}
-
-.main-detail-img:hover img {
-    transform: scale(1.1);
-}
-
-.step-num {
-    font-family: 'Oswald';
-    font-size: 24px;
-    font-weight: 800;
-    color: #cc0000;
-    min-width: 40px;
-    border-right: 1px solid #333;
-    height: fit-content;
-    padding-right: 15px;
-}
-
-.sidebar-box {
-    background: #111;
-    border: 1px solid #222;
-    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.sidebar-box:hover {
-    border-color: #444;
-    transform: translateX(-5px);
-}
-
-/* Hiệu ứng lún nút đặt lịch */
-.btn-light {
-    transition: 0.3s;
-}
-.btn-light:active {
-    transform: scale(0.95);
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-    color: #444;
-}
-/* --- BIẾN DÙNG CHUNG --- */
-:root {
-    --primary-red: #cc0000;
-    --dark-card: #111111;
-    --border-soft: rgba(255, 255, 255, 0.05);
-    --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* --- HIỆU ỨNG CHUYỂN ĐỘNG (SMOOTH ANIMATIONS) --- */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- CẤU TRÚC TRANG CHI TIẾT --- */
-.main-detail-img {
-    position: relative;
-    border: 1px solid var(--border-soft);
-    transition: var(--transition-smooth);
-}
-
-.main-detail-img img {
-    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.main-detail-img:hover img {
-    transform: scale(1.1);
-}
-
-/* --- QUY TRÌNH (STEPS) --- */
-.step-item {
-    background: var(--dark-card);
-    border: 1px solid var(--border-soft);
-    transition: var(--transition-smooth);
-}
-
-.step-item:hover {
-    border-color: var(--primary-red);
-    transform: translateX(10px);
-}
-
-.step-num {
-    font-family: 'Oswald', sans-serif;
-    color: var(--primary-red);
-    min-width: 50px;
-    border-right: 1px solid var(--border-soft);
-}
-
-/* --- SIDEBAR & BÁO GIÁ --- */
-.sidebar-box {
-    background: var(--dark-card);
-    border: 1px solid var(--border-soft);
-    transition: var(--transition-smooth);
-}
-
-.sidebar-box:hover {
-    border-color: var(--primary-red);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.price-item {
-    border-bottom: 1px solid var(--border-soft);
-    padding-bottom: 10px;
-}
-
-/* --- CÁC KHỐI KỸ THUẬT (TECH CARDS) --- */
-.tech-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-soft);
-    border-left: 4px solid var(--primary-red);
-    transition: var(--transition-smooth);
-}
-
-.tech-card:hover {
-    background: rgba(204, 0, 0, 0.05);
-    transform: translateY(-5px);
-}
-
-/* --- NÚT BẤM (BUTTONS) --- */
-.btn-reg-top {
-    background: transparent;
-    border: 1px solid #444;
-    color: white;
-    padding: 8px 20px;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.btn-reg-top:hover {
+.social-icon:hover {
     background: var(--primary-red);
-    border-color: var(--primary-red);
-    box-shadow: 0 0 15px rgba(204, 0, 0, 0.4);
-}
-
-.smooth-click:active {
-    transform: scale(0.95);
-}
-
-/* --- FOOTER & KHÁC --- */
-.Oswald-font {
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
-}
-
-.hover-red:hover {
-    color: var(--primary-red) !important;
-    cursor: pointer;
-    transition: 0.3s;
-}
-/* --- BIẾN CHỦ ĐẠO --- */
-:root {
-    --primary-red: #cc0000;
-    --dark-card: #121212;
-}
-
-.Oswald-font { font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
-
-/* --- NAVBAR CUSTOM --- */
-.btn-reg-top {
-    background: transparent;
-    border: 1px solid #444;
-    color: white;
-    padding: 8px 20px;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s ease;
-}
-.btn-reg-top:hover {
-    background: var(--primary-red);
-    border-color: var(--primary-red);
-    box-shadow: 0 0 15px rgba(204, 0, 0, 0.4);
-}
-
-/* --- HIỆU ỨNG SMOOTH --- */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- CHI TIẾT NỘI DUNG --- */
-.main-detail-img img {
-    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.main-detail-img:hover img {
-    transform: scale(1.05);
-}
-
-.tech-card, .sidebar-box {
-    background: var(--dark-card);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.4s;
-}
-
-.tech-card:hover {
-    border-color: var(--primary-red);
+    color: #fff;
     transform: translateY(-5px);
 }
 
-.price-item {
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding-bottom: 10px;
+.footer-link {
+    transition: var(--transition);
 }
 
-/* --- BUTTON HIỆU ỨNG LÚN --- */
-.smooth-click:active {
-    transform: scale(0.96);
-    transition: 0.1s;
-}
-
-.cta-box-red {
-    transition: 0.4s;
-}
-.cta-box-red:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(204, 0, 0, 0.3) !important;
-}
-
-/* --- FOOTER CUSTOM --- */
-footer {
-    background-color: #000;
-}
-
-.hover-red:hover {
+.footer-link:hover {
     color: var(--primary-red) !important;
-    transition: 0.3s ease;
+    padding-left: 5px;
 }
 
-/* Các biến màu sắc dùng chung */
-:root {
-    --primary-red: #cc0000;
-    --dark-card: #121212;
+/* Button nhận tư vấn vát chéo nhẹ */
+.btn-outline-danger {
+    border: 2px solid var(--primary-red) !important;
+    color: var(--primary-red) !important;
+    border-radius: 0;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    transition: var(--transition);
 }
 
-/* Font chữ chuyên dụng */
-.Oswald-font { 
-    font-family: 'Oswald', sans-serif; 
-    letter-spacing: 1px; 
+.btn-outline-danger:hover {
+    background: var(--primary-red) !important;
+    color: #fff !important;
 }
 
-/* Hiệu ứng mượt cho các khối */
-.ani-fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+.btn-outline-danger a:hover {
+    color: #fff !important;
 }
 
-@keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.tech-card, .sidebar-box {
-    background: var(--dark-card);
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.4s;
-}
-
-.price-item {
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding-bottom: 10px;
-}
->>>>>>> 7c0a17d9290a9c616fcd17a738e06e326e55c725
+/* Tiện ích bổ sung */
+.x-small { font-size: 0.75rem; }
+.ls-1 { letter-spacing: 1px; }
